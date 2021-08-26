@@ -1,11 +1,11 @@
   applications:
-  - name: djangoapp
+  - name: cardealerdemo
     routes:
-      - route: $HOST.$DOMAIN
+      - route: cardealerdemo.mybluemix.net
     memory: 128M
     buildpack: python_buildpack
-  - name: djangoapp-nginx
+  - name: cardealerdemo-nginx
     routes:
-      - route: $HOST.$DOMAIN/static
+      - route: cardealerdemo.mybluemix.net/static
     memory: 128M
     buildpack: staticfile_buildpack
