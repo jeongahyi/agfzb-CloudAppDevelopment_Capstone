@@ -22,6 +22,28 @@ from django.utils.timezone import now
 
 
 # <HINT> Create a plain Python class `CarDealer` to hold dealer data
+class CarMake(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(null= False, max_length=30, default='Mazda')
+    description = models.CharField(null= False, max_length=300, default='Mazda is not as bad as I thought')
 
+    def __str__(self):
+        return "Name: " + self.name + "," + \
+            "Description: " + self.description
 
 # <HINT> Create a plain Python class `DealerReview` to hold review data
+class CarModel(models.Model):
+    SEDAN = 'sedan'
+    SUV = 'suv'
+    WAGON = 'wagon'
+    OTHERS = 'others'
+    CAR_CHOICES = [(SEDAN, "Sedan"), (SUV, 'SUV'), (WAGON, 'Wagon'), (OTHERS, 'Others')]
+    id = models.AutoField(primary_key=True)
+    carmake = models.ForeignKey(CarMake, null= True, on_delete=models.CASCADE)
+    name = models.CharField(null= False, max_length=30, default='MX-5')
+    dealerid = models.IntegerField(null=True)
+    cartype = models.CharField(null= False, max_length=20, choices=CAR_CHOICES, default=OTHERS)
+    year = models.DateField(null= True)
+
+    def __str__(self):
+        return 'Name ' + self.name
