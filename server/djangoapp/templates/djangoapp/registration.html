@@ -13,6 +13,7 @@
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <div class="navbar-header">
+          <a class="navbar-brand" href="/djangoapp">Home</a>
           <a class="navbar-brand" href="/djangoapp/about">About</a>
           <a class="navbar-brand" href="/djangoapp/contact">Contact</a>
         </div>
@@ -61,9 +62,9 @@
       </div>
     </nav>
     <form action="{% url 'djangoapp:registration' %}" method="post">
-      <div class="container">
-        <h1>Sign Up</h1>
-        <hr />
+      <h1>Sign Up</h1>
+      <hr />
+      <div class="form-group">
         <label for="username"><b>User Name</b></label>
         <input
           type="text"
@@ -71,6 +72,8 @@
           name="username"
           required
         />
+      </div>
+      <div class="form-group">
         <label for="firstname"><b>First Name</b></label>
         <input
           type="text"
@@ -78,6 +81,8 @@
           name="firstname"
           required
         />
+      </div>
+      <div class="form-group">
         <label for="lastname"><b>Last Name</b></label>
         <input
           type="text"
@@ -85,6 +90,8 @@
           name="lastname"
           required
         />
+      </div>
+      <div class="form-group">
         <label for="psw"><b>Password</b></label>
         <input
           type="password"
@@ -92,11 +99,9 @@
           name="psw"
           required
         />
-        <div>
-          {% csrf_token %}
-          <button class="button" type="submit">Sign Up</button>
-        </div>
-      </div>
+      <div>
+      {% csrf_token %}
+      <button class="btn btn-primary" type="submit">Sign Up</button>
     </form>
   </body>
 </html>

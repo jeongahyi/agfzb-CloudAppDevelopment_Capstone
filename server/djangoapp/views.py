@@ -42,9 +42,9 @@ def login_request(request):
             return render(request, 'djangoapp/index.html', context)
         else:
             # If not, return to login page again
-            return render(request, 'djangoapp/index.html', context)
+            return render(request, 'djangoapp/registration.html', context)
     else:
-        return render(request, 'djangoapp/index.html', context)
+        return render(request, 'djangoapp/dealer_details.html', context)
 
 # Create a `logout_request` view to handle sign out request
 def logout_request(request):
