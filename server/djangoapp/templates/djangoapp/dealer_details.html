@@ -90,18 +90,31 @@
           src="{{MEDIA_URL}}/emoji/neutral.png"
           alt="review sentiment image"
         />
-        {% endif %} {{review.sentiment}}
+        {% endif %}
         <div class="card-body">
           {% if review.purchase %}
-          <label class="card-title bold">{{review.car_make}}</label>
-          <label class="card-title bold">{{review.car_model}}</label>
+          <label class="card-title bold"
+            >{{review.car_make}}, {{review.car_model}}</label
+          >
           <br />
           <label class="card-title bold">{{review.car_year}}</label>
-          {% endif %}
           <p class="card-text">{{review.review}}</p>
+          {% endif %}
         </div>
       </div>
       {% endfor %}
     </div>
+    {% if not review_list %}
+    <div>
+      <h3>There is no review for this dealership</h3>
+      <br />
+      <h3>
+        If you want to check another dealership's review for TEST please click
+        <a class="btn btn-link" href="{% url 'djangoapp:dealer_details' 23 %}"
+          >here</a
+        >
+      </h3>
+    </div>
+    {% endif %}
   </body>
 </html>

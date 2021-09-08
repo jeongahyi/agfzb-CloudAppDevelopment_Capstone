@@ -109,6 +109,7 @@ def get_dealer_details(request, dealer_id):
     if request.method == "GET":
         url = "https://1fd52154.us-south.apigw.appdomain.cloud/api/review"
         reviews = get_dealer_reviews_from_cf(url, dealer_id)
+        print(reviews)
         context["review_list"] = reviews
         context["dealer_id"] = dealer_id
         return render(request, 'djangoapp/dealer_details.html', context)
